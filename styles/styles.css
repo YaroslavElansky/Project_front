@@ -1,3 +1,17 @@
-h1 {
-    color: red;
+.body {
+font-family: "Open Sans", sans-serif;
+font-size: 16px;
+font-style: normal;
+line-height: 1.375;
+}
+
+
+
+.page-header__nav-link {
+    margin: 0 25px;
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: none;
 }
