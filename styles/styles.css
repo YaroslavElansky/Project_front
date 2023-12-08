@@ -15,7 +15,7 @@ line-height: 1.375;
 }
 
 .ipage-header::before{
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -79,16 +79,50 @@ line-height: 1.375;
     padding-top: 147px;
 }
 
-.page-header__title{
-    margin: 0 0 70px;
+.main-header__title
+.main-header__text{
     padding-left: 40px;
-    padding-right: 40px; 
+    padding-right: 40px;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Lora',sans-serif;
+    font-weight: 400;
     font-size: 45px;
     line-height: normal;
     color: #1f1e1e;
+}
+
+.main-header__title{
+    margin: 0 0 70px;
+}
+
+.main-header__text{
+    margin:auto;
+    max-width: 948px;
+    width: 100%;
+}
+
+.main-header__picture{
+    display: block;
+    margin-bottom: 70px;
+    position: relative;
+    width: 100%;
+}
+
+.main-header__picture::before{
+    content: '';
+    display: block;
+    position: relative;
+    padding-top: 16.927%;
+}
+
+.main-header__img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .main-header{
