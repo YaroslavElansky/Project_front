@@ -5,7 +5,9 @@ font-style: normal;
 line-height: 1.375;
 }
 
+.page-header {
 
+}
 
 .page-header__nav-link {
     margin: 0 25px;
@@ -14,4 +16,8 @@ line-height: 1.375;
     font-size: 18px;
     line-height: 25px;
     text-decoration: none;
+}
+
+.page-footer {
+    
 }
