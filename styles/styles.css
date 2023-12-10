@@ -3,6 +3,7 @@ font-family: "Open Sans", sans-serif;
 font-size: 16px;
 font-style: normal;
 line-height: 1.375;
+box-sizing: border-box;
 }
 
 .page-header {
@@ -31,6 +32,9 @@ line-height: 1.375;
 .page_header__conteiner{
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
     margin: 0 auto;
     padding-left: 40px;
     padding-right: 40px;
@@ -39,7 +43,6 @@ line-height: 1.375;
 }
 
 .page-header__logo{
-    margin-right: 237px;
     display: inline-block;
     width: 202px;
     height: 147px;
@@ -52,7 +55,7 @@ line-height: 1.375;
 
 .page-header__nav{
     display: inline-block;
-    margin-right: 230px;
+    
 }
 .page-header__nav-link {
     margin: 0 25px;
@@ -127,6 +130,47 @@ line-height: 1.375;
 
 .main-header{
     padding: 100px 0;
+}
+
+.events {
+    padding-top: 147px;
+}
+
+.events-conteiner {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1414px;
+    width: 100%;
+}
+
+.events-conteiner {
+    flex-direction: column;
+}
+
+.events__title{
+    align-self: center;
+}
+
+.title {
+    margin: 0 0 150px;
+    box-sizing: border-box;
+    padding: 7px 45px 9px;
+    max-width: 624px;
+    width: 100%;
+    text-align: center;
+    background-color: #1F1E16;
+    text-transform: uppercase;
+    font-family: Lora;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    color: #ffffff;
 }
 
 .page-footer {
