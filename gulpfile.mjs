@@ -1,32 +1,40 @@
 import gulp from "gulp";
 import del from "del";
-import include from "include";
-import plumber from "plumber";
-import formftHTML from "gulp-format-html";
+import include from "gulp-file-include";
+import plumber from "gulp-plumber";
+import formatHtml from "gulp-format-html";
+
 import autoprefixer from "autoprefix";
 import less from "gulp-less";
 import terser from "gulp-terser";
 import rename from "gulp-rename";
-import imagemin from "gulp-imagemin";
 import postcss from "gulp-postcss"; 
 import sortMediaQueries from "postcss-sort-media-queries";
+
 import minify from "gulp-csso";
 import rename from "gulp-rename";
 import terser from "gulp-terser";
+
 import imagemin from "gulp-imagemin";
 import imagemin_gifsicle from "imagemin-gifsicle";
 import imagemin_mozjpeg from "imagemin-mozjpeg";
+import imagemin_optipng from "imagemin-optipng";
+import svgmin from "gulp-svgmin";
+import svgstore from "gulp-svgstore";
+
+import server from "browser-sync";
 
 const resources={
     html:"src/html/**/*.html",
+    jsDev:"src/scripts/dev/*.js",
     jsVendor: "src/scripts/vendor/*.js",
     less: "src/styles/**/*.less",
     static:[
         "src/assets/icons/**/*.*",
         "src/assets/fonts/**/*.{woff,woff2}"
     ],
-    images: "src/assets/images/**/*.{png,jpg,jpeg,webp,gif,svg}" 
-
+    images: "src/assets/images/**/*.{png,jpg,jpeg,webp,gif,svg}",
+    svgSprite:"src/assets/svg.sprite/*.svg"
 }
 
 function clean () {
@@ -113,3 +121,67 @@ function images() {
     )
     .pipe(gulp.dest("dist/assets/images"));
 }
+
+function svgSprite(){
+    return gulp
+    .src(resources.svgSprite)
+    .pipe(
+        svgmin({
+            js2svg: {
+                pretty: true
+            }
+        })
+    )
+    .pipe(
+        svgstore({
+            inlineSvg: true
+        })
+    )
+    .pipe(rename("symbols.svg"))
+    .pipe(gulp.dest("dist/assets/icons"));
+}
+
+const build = gulp.series(
+    clean,
+    copy,
+    includeHtml,
+    style,
+    js,
+    jsCopy,
+    images,
+    svgSprite
+);
+
+function reloadServer(done){
+    server.reload();
+    done();
+}
+
+function serve() {
+    server.init({
+        server: "dist"
+    });
+    gulp.watch(resources.html, gulp.series(includeHtml, reloadServer));
+    gulp.watch(resources.less, gulp.series(style, reloadServer));
+    gulp.watch(resources.jsDev, gulp.series(js,reloadServer))
+    gulp.watch(resources.jsVendor, gulp.series(jsCopy, reloadServer));
+    gulp.watch(resources.static, {delay: 500}, gulp.series(copy,reloadServer));
+    gulp.watch(resources.images, {delay: 500}, gulp.series(images, reloadServer));
+    gulp.watch(resources.svgSprite, gulp.series(svgSprite,reloadServer));
+}
+
+const start = gulp.series(build,serve);
+
+export {
+    clean,
+    copy,
+    includeHtml,
+    style,
+    js,
+    jsCopy,
+    images,
+    svgSprite,
+    build,
+    serve,
+    start
+};
