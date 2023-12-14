@@ -1,10 +1,21 @@
 import gulp from "gulp";
 import del from "del";
-import gulpPlumber from "gulp-plumber";
+import include from "include";
+import plumber from "plumber";
+import formftHTML from "gulp-format-html";
+import autoprefixer from "autoprefix";
 import less from "gulp-less";
 import terser from "gulp-terser";
 import rename from "gulp-rename";
 import imagemin from "gulp-imagemin";
+import postcss from "gulp-postcss"; 
+import sortMediaQueries from "postcss-sort-media-queries";
+import minify from "gulp-csso";
+import rename from "gulp-rename";
+import terser from "gulp-terser";
+import imagemin from "gulp-imagemin";
+import imagemin_gifsicle from "imagemin-gifsicle";
+import imagemin_mozjpeg from "imagemin-mozjpeg";
 
 const resources={
     html:"src/html/**/*.html",
