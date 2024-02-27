@@ -1,18 +1,29 @@
 .form {
     &__list{
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
-        gap: 60px;
+       row-gap: 30px;
+       column-gap: 60px;
+       &--mb50 {
+        margin-bottom: 50px;
+       }
     }
     
     &__group {
         width: calc(50%-30px);
     }
     &__field {
-        margin-bottom: 30px;
+       
         width: 100%;
         &--w50{
             width: calc(50%-30px);
         }
-    }    
+
+        &--mb30 {
+            margin-bottom: 30px;
+        }
+    }
+    
+   
 }
