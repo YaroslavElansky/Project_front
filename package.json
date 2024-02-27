@@ -4,7 +4,7 @@
     "description": "course frontend junior",
     "author": "yroslav-elansky@mail.ru",
     "devDependencies": {
-        "autoprefix": "^10.2.2",
+        "autoprefix": "^10.4.2",
         "browser-sync": "^2.27.7",
         "del": "^6.0.0",
         "gulp": "^4.0.2",
