@@ -1,0 +1,36 @@
+.event-card {
+    display: flex;
+    width: 405px;
+    max-width: 100%;
+    min-width: 280px;
+    color: @black;
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-decoration: none;
+        &:active {
+            .event-card__title {
+                color: @red;
+                text-decoration-color: @red;
+            }
+        }  
+        &:hover .event-card__title {
+            @media (hover: hover) {
+                color: @red;
+                text-decoration-color: @red;
+            }
+        }
+    }
+    &__picture {
+        display: block;
+        position: relative;
+        width: 100%;
+        margin: 0 0 25px;
+        font-size: 0;
+        text-decoration: none;
+        overflow: hidden;
+        
+    }
+}
