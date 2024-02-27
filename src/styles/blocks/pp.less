@@ -1,0 +1,58 @@
+.pp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 90px 50px 50px;
+    overflow-y: auto;
+    z-index: 110;
+    background-color: @gray;
+    //display: none;
+    @supports (backdrop_filtr: blur(25px)) {
+        background-color: @black_40;
+        backdrop-filter: blur(25px);
+    }
+    &__container {
+        background-color: @gray;
+        background-image: url(../assets/images/noise.png);
+        background-repeat: repeat;
+        background-position: 0 0;
+        background-size: auto;
+    }
+    &__title {
+        margin: -40px 0 0;
+        box-sizing: border-box;
+        padding: 10px 84px;
+        text-transform: uppercase;
+        max-width: 595px;
+        background-color: @black;
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 0.44px;
+        color: @white;
+    }
+    &__sticky-close {
+        position: sticky;
+        top: 0;
+    }
+    &__sticky-btn {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        border: none;
+        border-radius: 50%;
+        background-color: @black;
+        color: @white;
+        transition: background-color 0.2s;
+        &:hover {
+            @media (hover:hover) {
+                background-color: @red_dark;
+            }
+        }
+    }
+}
