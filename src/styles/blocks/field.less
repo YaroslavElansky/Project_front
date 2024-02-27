@@ -1,3 +1,35 @@
 .field {
-    
+   &__title {
+    margin: 0 0 10px;
+    font-weight: 700;
+    font-family: @font1;
+    font-size: 18px;
+    line-height: 25px;
+    color: @black;
+
+    &--mb7 {
+        margin-bottom: 7px;
+    }
+   }
+   &__inputs {
+    display: flex;
+    gap: 15px;
+   }
+   &__input {
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: @white;
+    padding: 17px 20px 16px;
+    color: @black;
+    &--w55{
+        width: 55px;
+    }
+    &--110 {
+        width: 110px;
+    }
+    &::placeholder {
+        font-size: 16px;
+        color: #6c6c6c;
+    }
+   }
 }
