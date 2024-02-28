@@ -1,4 +1,5 @@
 .about {
+    padding: 90px;
     &__block {
         &__container {
             .container;
@@ -37,6 +38,9 @@
         &--2 {
             grid-area: text;
             margin-left: auto;
+        }
+        &--mb90 {
+            margin-bottom: 90px;
         }
     }
     &__picture {
@@ -83,5 +87,52 @@
             width: 100%;
             padding-top: 122.029%;
         }
+    }
+
+    &__block3 {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+
+    }
+
+    &__picture3 {
+        max-width: 930px;
+        width: 100%;
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        padding: 18px 9px 49px;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 65%;
+            background-color: @red;
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-top: 40.860%;
+        }
+    }
+
+    &__img2 {
+        position: absolute;
+        top: 18px;
+        left: 49px;
+        right: 9px;
+        bottom: 0;
+        width: calc(100%-58px);
+        object-fit: contain;
+    }
+
+    &__block3-wrapper {
+        max-width: 344px;
+        width: 100%;
+
     }
 }
